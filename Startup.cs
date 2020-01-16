@@ -84,7 +84,7 @@ namespace AspNetCore.AzureAd.Swagger
                 c.OAuthRealm(Configuration["AzureAD:ClientId"]);
                 c.OAuthAppName("My API V1");
                 c.OAuthScopeSeparator(" ");
-                c.OAuthAdditionalQueryStringParams(new { resource = Configuration["AzureAD:ClientId"] });
+                c.OAuthAdditionalQueryStringParams(new Dictionary<string, string>() { { "resource", Configuration["AzureAD:ClientId"] } });
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
         }
